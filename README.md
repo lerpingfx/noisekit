@@ -4,7 +4,7 @@ Procedural generation and baking of tileable noise textures in the Unity Editor 
 Choose from available noise types, edit their properties using a realtime viewport, perform channel packing and export as textures.
 
 <p align="center">
-  <img width="100%" src="https://github.com/lerpingfx/noisekit/blob/package/.github/images/NoiseKit.gif?raw=true" alt="NoiseComposition">
+  <img width="100%" src="https://github.com/lerpingfx/noisekit/blob/.github/images/NoiseKit.gif?raw=true" alt="NoiseComposition">
 </p>
 
 ## Requirements
@@ -14,7 +14,7 @@ NoiseKit is implemented using UIToolkit, and is supported in the Unity Editor fo
 Follow these steps for <a href="https://docs.unity3d.com/Manual/upm-ui-giturl.html"> installing a package from a git url</a>:
 1. Go to `Window > Package Manager`
 2. On the top left on the Package Manager window, click on `+ > Add package from git URL...`
-3. Add the following URL `https://github.com/lerpingfx/unity-noisekit.git`  
+3. Add the following URL `https://github.com/lerpingfx/noisekit.git`  
 
 Once installed, start the NoiseKit panel from the main toolbar: `Window > NoiseKit > Open`
 
@@ -26,5 +26,5 @@ Once installed, start the NoiseKit panel from the main toolbar: `Window > NoiseK
 `Export`: set the exported texture's precision (8/16 bit per channel), resolution and file path.  
 
 <p align="left">
-  <img width="30%" src="https://github.com/lerpingfx/noisekit/blob/package/.github/images/Controls.png?raw=true" alt="NoiseControls">
+  <img width="30%" src="https://github.com/lerpingfx/noisekit/blob/.github/images/Controls.png?raw=true" alt="NoiseControls">
 </p>
