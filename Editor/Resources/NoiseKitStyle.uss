@@ -1,0 +1,97 @@
+.noise-selection{
+	flex-direction: column;
+	flex-wrap: wrap;
+	flex-stretch: 1;
+
+}
+
+#noise-selection-dropdown{
+
+	border-left-width: .5;
+	border-top-width: .5;
+	border-right-width: .5;
+	border-bottom-width: .5;
+	left: 2;
+	height: 25;
+	color: white;
+}
+
+.noise-properties{
+	flex-direction: column;
+}
+
+#property{
+	border-color: black;
+	border-bottom-width: .5;
+	flex-direction: row;
+	height: 25;
+}
+
+#property-slider{
+	flex-grow: 1;
+}
+
+#property-label{
+	align-self: center;
+	left: 2;
+	width: 70;
+}
+
+.canvas{
+	background-color:black;
+	max-height: 256;
+
+	border-left-width: 1;
+	border-top-width: 1;
+	border-right-width: 1;
+	border-bottom-width: 1;
+}
+
+.input-res{
+	flex-direction: row;
+	justify-content: space-between;
+	border-color: black;
+	align-content: stretch;
+
+}
+
+#input-res-button{
+	
+}
+
+#input-res-x{
+	width: 50;
+	flex-grow: 1;
+}
+
+#input-res-y{
+	width: 50;
+	flex-grow: 1;
+
+}
+
+#input-res-z{
+    width: 50;
+	flex-grow: 1;
+}
+
+.input-path{
+	flex-direction: row;
+	justify-content: space-between;
+
+}
+
+#input-path-field{
+	flex-grow: 1;
+}
+
+#input-path-label{
+	align-self: center;
+	left: 2;
+	width: 58;
+}
+
+.save{
+	flex-direction: column;
+	justify-content: space-between;
+}
