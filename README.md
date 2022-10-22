@@ -1,4 +1,4 @@
-NoiseKit - Procedural Noise Generation and Baking
+# NoiseKit - Procedural Noise Generation and Baking
 
 Procedural generation and baking of tileable noise textures in the Unity Editor using compute.  
 Choose from available noise types, edit their properties using a realtime viewport, perform channel packing and export as textures.
