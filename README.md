@@ -11,10 +11,9 @@ Choose from available noise types, edit their properties using a realtime viewpo
 NoiseKit is implemented using UIToolkit, and is supported in Unity 2023.x and later.
 
 ## Setup
-Follow these steps for <a href="https://docs.unity3d.com/Manual/upm-ui-giturl.html"> installing a package from a git url</a>:
-1. Go to `Window > Package Manager`
-2. On the top left on the Package Manager window, click on `+ > Add package from git URL...`
-3. Add the following URL `https://github.com/lerpingfx/noisekit.git`  
+1. Download the package (`Code > Download Zip`) and unzip
+2. In the Unity Editor, go to `Window > Package Manager`
+3. On the top left on the Package Manager window, click on `+ > Add package from disk` and navigate to the package directory
 
 Once installed, start the NoiseKit panel from the main toolbar: `Window > NoiseKit > Open`
 
