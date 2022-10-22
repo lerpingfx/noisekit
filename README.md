@@ -1,14 +1,14 @@
 # NoiseKit - Procedural Noise Generation and Baking
 
 Procedural generation and baking of tileable noise textures in the Unity Editor using compute.  
-Choose from available noise types, edit their properties using a realtime viewport, perform channel packing and export as textures.
+Choose from available noise types, edit their properties using a realtime viewport, perform channel packing and export as textures:
 
 <p align="center">
   <img width="100%" src="https://github.com/lerpingfx/noisekit/blob/main/.github/images/NoiseKit.gif?raw=true" alt="NoiseComposition">
 </p>
 
 ## Requirements
-NoiseKit is implemented using UIToolkit, and is supported in the Unity Editor for 2023.1 and later.
+NoiseKit is implemented using UIToolkit, and is supported in Unity 2023.x and later.
 
 ## Setup
 Follow these steps for <a href="https://docs.unity3d.com/Manual/upm-ui-giturl.html"> installing a package from a git url</a>:
