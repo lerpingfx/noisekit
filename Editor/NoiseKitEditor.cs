@@ -164,13 +164,13 @@ public class NoiseKitEditor : EditorWindow
 
     void LoadElements()
     {
-        NoiseEditorTemplate = Resources.Load<VisualTreeAsset>("NoiseKitResources/NoiseKitEditor");
-        NoiseNodeTemplate = Resources.Load<VisualTreeAsset>("NoiseKitResources/NoiseNode");
-        NoiseChannelTemplate = Resources.Load<VisualTreeAsset>("NoiseKitResources/NoiseChannel");
-        NoiseTemplate = Resources.Load<VisualTreeAsset>("NoiseKitResources/Noise");
-        PropertyTemplate = Resources.Load<VisualTreeAsset>("NoiseKitResources/Property");
-        ChannelToggle = Resources.Load<VisualTreeAsset>("NoiseKitResources/ChannelToggle");
-        Message = Resources.Load<VisualTreeAsset>("NoiseKitResources/Message");
+        NoiseEditorTemplate = (VisualTreeAsset)AssetDatabase.LoadAssetAtPath("Packages/com.lerpingfx.noisekit/Editor/Resources/NoiseKitEditor.uxml", typeof(VisualTreeAsset));
+        NoiseNodeTemplate = (VisualTreeAsset)AssetDatabase.LoadAssetAtPath("Packages/com.lerpingfx.noisekit/Editor/Resources/NoiseNode.uxml", typeof(VisualTreeAsset));
+        NoiseChannelTemplate = (VisualTreeAsset)AssetDatabase.LoadAssetAtPath("Packages/com.lerpingfx.noisekit/Editor/Resources/NoiseChannel.uxml", typeof(VisualTreeAsset));
+        NoiseTemplate = (VisualTreeAsset)AssetDatabase.LoadAssetAtPath("Packages/com.lerpingfx.noisekit/Editor/Resources/Noise.uxml", typeof(VisualTreeAsset));
+        PropertyTemplate = (VisualTreeAsset)AssetDatabase.LoadAssetAtPath("Packages/com.lerpingfx.noisekit/Editor/Resources/Property.uxml", typeof(VisualTreeAsset));
+        ChannelToggle = (VisualTreeAsset)AssetDatabase.LoadAssetAtPath("Packages/com.lerpingfx.noisekit/Editor/Resources/ChannelToggle.uxml", typeof(VisualTreeAsset));
+        Message = (VisualTreeAsset)AssetDatabase.LoadAssetAtPath("Packages/com.lerpingfx.noisekit/Editor/Resources/Message.uxml", typeof(VisualTreeAsset));
     }
     void QueryElements()
     {
@@ -227,7 +227,7 @@ public class NoiseKitEditor : EditorWindow
         // Initialization 
         LoadElements();
 
-        Shader blitShader = Resources.Load<Shader>("NoiseKitResources/NoiseKitBlit");
+        Shader blitShader = (Shader)AssetDatabase.LoadAssetAtPath("Packages/com.lerpingfx.noisekit/Editor/Resources/NoiseKitBlit.shader", typeof(Shader));
         BlitMat = new Material(blitShader);
 
         nodeCount = 0;
@@ -254,7 +254,6 @@ public class NoiseKitEditor : EditorWindow
         canvasRT = new RenderTexture(resX, resX, resY, rtFormat, colorSpace);
 
         // UI Setup
-        NoiseEditorTemplate = Resources.Load<VisualTreeAsset>("NoiseKitResources/NoiseKitEditor");
         NoiseEditor = NoiseEditorTemplate.Instantiate();
         QueryElements();
 
@@ -622,7 +621,8 @@ public class NoiseKitEditor : EditorWindow
         string srcKernel = "";
         string srcIncludes = "";
 
-        srcIncludes = "#include \"Assets/Editor/Resources/NoiseKitResources/NoiseKit.hlsl\" \n";
+        //
+        srcIncludes = "#include \"Packages/com.lerpingfx.noisekit/Editor/Resources/NoiseKit.hlsl\" \n";
         srcPragma = "#pragma kernel NoiseKernel \n";
         if (channelCount == 1) { srcTarget = "RWTexture2D<float> _outputTex; \n".Replace("\n", Environment.NewLine); }
         else if (channelCount == 2) { srcTarget = "RWTexture2D<float2> _outputTex; \n".Replace("\n", Environment.NewLine); }
@@ -652,10 +652,10 @@ public class NoiseKitEditor : EditorWindow
         srcKernel += "_outputTex[id.xy] = " + channels + ";} \n".Replace("\n", Environment.NewLine);
 
         src = srcPragma + System.Environment.NewLine + srcIncludes + System.Environment.NewLine + srcTarget + System.Environment.NewLine + srcProps + System.Environment.NewLine + srcCurves + System.Environment.NewLine + System.Environment.NewLine + srcRes + System.Environment.NewLine + srcKernel;
-        System.IO.File.WriteAllText(Application.dataPath + "/Editor/Resources/NoiseKitResources/ComputeNoise.compute", src);
+        System.IO.File.WriteAllText("Packages/com.lerpingfx.noisekit/Editor/Resources/ComputeNoise.compute", src);
 
         AssetDatabase.Refresh();
-        ng.computeShader = Resources.Load<ComputeShader>("NoiseKitResources/ComputeNoise");
+        ng.computeShader = (ComputeShader)AssetDatabase.LoadAssetAtPath("Packages/com.lerpingfx.noisekit/Editor/Resources/ComputeNoise.compute", typeof(ComputeShader));
 
     }
     private void UpdateFormat(ChangeEvent<string> evt)

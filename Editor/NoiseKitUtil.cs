@@ -11,9 +11,8 @@ public static class NoiseKitUtil
     {
         ValueNoise = 0,
         PerlinNoise = 1,
-        CellularNoise = 2,
-        FractalValueNoise = 3,
-        FractalPerlinNoise = 4
+        FractalValueNoise = 2,
+        FractalPerlinNoise = 3
     }
 
     public static Node QueryNode(NodeType type)
@@ -25,10 +24,6 @@ public static class NoiseKitUtil
         else if (type == NodeType.PerlinNoise)
         {
             return PerlinNoise;
-        }
-        else if (type == NodeType.CellularNoise)
-        {
-            return CellularNoise;
         }
         else if (type == NodeType.FractalValueNoise)
         {
@@ -50,10 +45,6 @@ public static class NoiseKitUtil
         else if (name == "PerlinNoise")
         {
             return NodeType.PerlinNoise;
-        }
-        else if (name == "CellularNoise")
-        {
-            return NodeType.CellularNoise;
         }
         else if (name == "FractalValueNoise")
         {
@@ -208,20 +199,6 @@ public static class NoiseKitUtil
                     "float $ = fractalWorley2D(uv * 4, float2(_propsBuffer#[0], _propsBuffer#[1]), _propsBuffer#[2], _propsBuffer#[3], _propsBuffer#[4], _propsBuffer#[5], _propsBuffer#[6], float2(4,4), 0.4);\n"
         }
     );
-
-    public static Node CellularNoise = new Node(
-    new List<Property>()
-    {
-                new Property ("Seed", Random.Range(0.0f, 50.0f), 0.0f, 50.0f)
-    },
-    new List<string>()
-    {
-    },
-    new List<string>(){
-                //float perlinNoise2D(float2 uv, float2 dir, float2 period)
-                "float $ = cellularNoise2D(uv * 4 , float2(_propsBuffer#[0], _propsBuffer#[0] / 2.718), float2(4, 4), _curveBuffer#[0], _curveBuffer#[1], _curveBuffer#[2]);\n"
-    }
-);
 
     public static float SampleBezier(float t, float[] cp)
     {

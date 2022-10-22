@@ -90,28 +90,6 @@ float perlinNoise2D(float2 uv, float2 dir, float2 period, float cp0, float cp1, 
     return noise;
 }
 
-float cellularNoise2D(float2 uv, float2 dir, float2 period, float cp0, float cp1, float cp2)
-{
-    float2 cellID = floor(uv);
-    cellID = (cellID % period + period) % period;
-    float2 nfc = frac(uv);
-
-    float minDist = 1.0;
-
-    for (int x = -1; x <= 1; x++) {
-        for (int y = -1; y <= 1; y++) {
-            float2 adjCell = float2(float(x), float(y));
-            float2 pos = adjCell + random2Df2(cellID + adjCell, dir);
-            float2 fragToPos = pos - nfc;
-            float distanceToPos = length(fragToPos);
-            minDist = min(minDist, distanceToPos);
-        }
-    }
-
-    float noise = sampleBezier(minDist, cp0, cp1, cp2);
-    return noise;
-}
-
 
 float fractalValueNoise2D( float2 uv, float2 noiseDir, float amp, float freq, float oct, float gain, float lacu, float2 period, float perst, float cp0, float cp1, float cp2)
 {    
