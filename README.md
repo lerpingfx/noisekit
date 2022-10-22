@@ -1,10 +1,10 @@
-hi# NoiseKit - Procedural Noise Generation and Baking
+NoiseKit - Procedural Noise Generation and Baking
 
 Procedural generation and baking of tileable noise textures in the Unity Editor using compute.  
 Choose from available noise types, edit their properties using a realtime viewport, perform channel packing and export as textures.
 
 <p align="center">
-  <img width="100%" src="https://github.com/lerpingfx/noisekit/blob/.github/images/NoiseKit.gif?raw=true" alt="NoiseComposition">
+  <img width="100%" src="https://github.com/lerpingfx/noisekit/.github/images/NoiseKit.gif?raw=true" alt="NoiseComposition">
 </p>
 
 ## Requirements
@@ -26,5 +26,5 @@ Once installed, start the NoiseKit panel from the main toolbar: `Window > NoiseK
 `Export`: set the exported texture's precision (8/16 bit per channel), resolution and file path.  
 
 <p align="left">
-  <img width="30%" src="https://github.com/lerpingfx/noisekit/blob/.github/images/Controls.png?raw=true" alt="NoiseControls">
+  <img width="30%" src="https://github.com/lerpingfx/noisekit/.github/images/Controls.png?raw=true" alt="NoiseControls">
 </p>
