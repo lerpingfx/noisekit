@@ -26,5 +26,5 @@ Once installed, start the NoiseKit panel from the main toolbar: `Window > NoiseK
 `Export`: set the exported texture's precision (8/16 bit per channel), resolution and file path.  
 
 <p align="left">
-  <img width="50%" src="https://github.com/lerpingfx/noisekit/blob/main/.github/images/Controls.png?raw=true" alt="NoiseControls">
+  <img width="40%" src="https://github.com/lerpingfx/noisekit/blob/main/.github/images/Controls.png?raw=true" alt="NoiseControls">
 </p>
