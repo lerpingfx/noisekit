@@ -11,8 +11,9 @@ public static class NoiseKitUtil
     {
         ValueNoise = 0,
         PerlinNoise = 1,
-        FractalValueNoise = 2,
-        FractalPerlinNoise = 3
+        CellularNoise = 2,
+        FractalValueNoise = 3,
+        FractalPerlinNoise = 4
     }
 
     public static Node QueryNode(NodeType type)
@@ -25,6 +26,10 @@ public static class NoiseKitUtil
         {
             return PerlinNoise;
         }
+        else if (type == NodeType.CellularNoise)
+        {
+            return CellularNoise;
+        }
         else if (type == NodeType.FractalValueNoise)
         {
             return FractalValueNoise;
@@ -33,7 +38,7 @@ public static class NoiseKitUtil
         {
             return FractalPerlinNoise;
         }
-        else return ValueNoise;     
+        else return ValueNoise;
     }
 
     public static NodeType NodeTypeFromString(string name)
@@ -45,6 +50,10 @@ public static class NoiseKitUtil
         else if (name == "PerlinNoise")
         {
             return NodeType.PerlinNoise;
+        }
+        else if (name == "CellularNoise")
+        {
+            return NodeType.CellularNoise;
         }
         else if (name == "FractalValueNoise")
         {
@@ -100,7 +109,6 @@ public static class NoiseKitUtil
         }
       
     }
-
 
     public static Node ValueNoise = new Node(
             new List<Property>()
@@ -166,37 +174,17 @@ public static class NoiseKitUtil
          }
      );
 
-    public static Node WorleyNoise = new Node(
+        public static Node CellularNoise = new Node(
         new List<Property>()
         {
-                new Property ("Tiling X", 0.0f, 0.0f, 25.0f),
-                new Property ("Tiling Y", 0.0f, 0.0f, 25.0f),
-                new Property ("Frequency", 0.0f, 0.0f, 5.0f)
+                        new Property ("Seed", Random.Range(0.0f, 50.0f), 0.0f, 50.0f)
         },
         new List<string>()
         {
         },
         new List<string>(){
-                    "float $ = worleyNoise2D(uv * float2(_propsBuffer#[0], _propsBuffer#[1]), _propsBuffer#[2]);\n"
-        }
-    );
-
-    public static Node FractalWorleyNoise = new Node(
-        new List<Property>()
-        {
-                new Property ("Seed X", 0.0f, 0.0f, 0.5f),
-                new Property ("Seed Y", 0.0f, 0.0f, 0.5f),
-                new Property ("Octaves", 0.0f, 0.0f, 10.0f),
-                new Property ("Amplitude", 0.0f, 0.0f, 2.0f),
-                new Property ("Frequency", 0.0f, 0.0f, 5.0f),
-                new Property ("Gain", 0.0f, 0.0f, 2.0f),
-                new Property ("Lacunarity", 0.0f, 0.0f, 5.0f)
-        },
-        new List<string>()
-        {
-        },
-        new List<string>(){
-                    "float $ = fractalWorley2D(uv * 4, float2(_propsBuffer#[0], _propsBuffer#[1]), _propsBuffer#[2], _propsBuffer#[3], _propsBuffer#[4], _propsBuffer#[5], _propsBuffer#[6], float2(4,4), 0.4);\n"
+                        //float perlinNoise2D(float2 uv, float2 dir, float2 period)
+                        "float $ = cellularNoise2D(uv  , float2(_propsBuffer#[0], _propsBuffer#[0] / 2.718), float2(4, 4), _curveBuffer#[0], _curveBuffer#[1], _curveBuffer#[2]);\n"
         }
     );
 

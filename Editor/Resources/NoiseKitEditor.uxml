@@ -45,7 +45,7 @@
             </ui:VisualElement>
             <ui:VisualElement name="FileSettings" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); margin-bottom: 5px; margin-left: 0; margin-top: 2px; margin-right: 6px; flex-direction: row;">
                 <ui:Label text="File Path:" display-tooltip-when-elided="true" name="FilePathLabel" style="-unity-text-align: middle-left; -unity-font-style: normal;" />
-                <ui:TextField picking-mode="Ignore" value="filler text" name="FilePathText" max-length="-1" multiline="true" text="Editor/NoiseKit/Output/MyTex" style="flex-grow: 1; align-items: stretch; flex-direction: row; flex-wrap: nowrap; flex-shrink: 0; -unity-font-style: normal;" />
+                <ui:TextField picking-mode="Ignore" value="filler text" name="FilePathText" max-length="-1" multiline="true" text="Noise/Texture0" style="flex-grow: 1; align-items: stretch; flex-direction: row; flex-wrap: nowrap; flex-shrink: 0; -unity-font-style: normal;" />
             </ui:VisualElement>
             <ui:VisualElement name="SaveSettings" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); margin-bottom: 5px; margin-left: 0; margin-top: 2px; margin-right: 6px; flex-direction: row; min-height: auto; min-width: auto;">
                 <ui:Button text="Save Texture" display-tooltip-when-elided="true" name="SaveTextureButton" style="-unity-font-style: normal; flex-grow: 1; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />

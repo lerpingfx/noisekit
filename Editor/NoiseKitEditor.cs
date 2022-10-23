@@ -621,7 +621,6 @@ public class NoiseKitEditor : EditorWindow
         string srcKernel = "";
         string srcIncludes = "";
 
-        //
         srcIncludes = "#include \"Packages/com.lerpingfx.noisekit/Editor/Resources/NoiseKit.hlsl\" \n";
         srcPragma = "#pragma kernel NoiseKernel \n";
         if (channelCount == 1) { srcTarget = "RWTexture2D<float> _outputTex; \n".Replace("\n", Environment.NewLine); }
@@ -782,7 +781,10 @@ public class NoiseKitEditor : EditorWindow
         }
         RenderTexture.active = previousActiveRT;
         string path = Application.dataPath + "/" + input.text + extension;
-        System.IO.File.WriteAllBytes(path, texData);
+
+        System.IO.FileInfo fileInfo = new System.IO.FileInfo(path);
+        fileInfo.Directory.Create();
+        System.IO.File.WriteAllBytes(fileInfo.FullName, texData);
         AssetDatabase.Refresh();
 
         Label log = Messages[0].Q<Label>("MessageLabel");
